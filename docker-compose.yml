@@ -1,0 +1,45 @@
+# Mega docker compose, specifying the network and the services in this mastodontic software awsomeness
+version: '3.3'
+services:
+  # Telnet default credentials
+  telnet:
+    image: default:telnet_default_creds
+    ports: 
+    - "23:23"
+  # directory busting
+  nginx:
+    image: default:web_server
+    ports:
+    - "8111:80"
+  # CTFd platform
+  ctfd:
+    image: default:ctfd
+    ports:
+    - "8000:8000"
+  # Apache Web Server with php
+  apache:
+    image: default:http_sql_server
+    ports:
+    - "81:80"
+    networks:
+      - web_site_company
+  # MySQL server for apache web server
+  mysql:
+    image: default:mysql_server
+    container_name: mysql_backend
+    ports:
+    - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=12345
+    networks:
+      - web_site_company
+  # Buffer overflow with telnet service
+  2telnet:
+    image: default:buffer_overflow
+    ports:
+    - "20:20"
+networks: 
+  web_site_company:
+
+
+# This is about it for the Docker side of the CTF!

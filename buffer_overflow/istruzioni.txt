@@ -1,0 +1,11 @@
+Prendi la flag del file
+la metti in un file dove tu sei l'owner e puoi leggerlo solo tu
+metti lo SUID bit all'eseguibile compilato, togliendo tutti i permessi alla sorgente C , quindi lettura, scrittura ed executable OFF
+et voila'
+
+Ovviamente tutto va messo su Telnet, scegli tu quale Vm metterlo, anche Abraham
+
+prova ad usare un input come hahahahahahahahahahhahahahahahahahahahah
+per ottenere un buffer overflow
+
+Il codice funziona perfettamente!, attenzione alla mappatura di telnet (il port)
